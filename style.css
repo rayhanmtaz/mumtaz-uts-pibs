@@ -1,0 +1,307 @@
+/* --- 1. Variabel Desain & Konfigurasi Global --- */
+:root {
+    --font-primary: 'Poppins', sans-serif;
+    --font-heading: 'Lora', serif;
+    
+    --color-background: #121212;
+    --color-surface: rgba(30, 30, 30, 0.6);
+    --color-primary-text: #e0e0e0;
+    --color-secondary-text: #a0a0a0;
+    --color-heading: #ffffff;
+    --color-accent: #c5a47e;
+    --color-border: rgba(51, 51, 51, 0.8);
+    
+    --gradient-accent: linear-gradient(45deg, #c5a47e, #e6cfa1);
+    
+    --border-radius: 16px;
+    --transition-speed: 0.4s;
+}
+
+/* --- 2. Gaya Dasar & Tipografi --- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-weight: 300;
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-primary-text);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before, body::after {
+    content: '';
+    position: fixed;
+    z-index: -1;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(197, 164, 126, 0.15), transparent 70%);
+    border-radius: 50%;
+    filter: blur(120px);
+}
+
+body::before {
+    top: -100px;
+    left: -100px;
+}
+
+body::after {
+    bottom: -150px;
+    right: -150px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-heading);
+    margin-top: 0;
+}
+
+/* --- 3. Animasi --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fillBar {
+    from { width: 0%; }
+    to { /* Lebar diatur inline di HTML */ }
+}
+
+/* --- 4. Tata Letak Utama & Header (DIPERBARUI) --- */
+header {
+    background-color: #000; /* Mengganti latar belakang transparan menjadi solid */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2.5rem 2rem;
+    border-bottom: 1px solid var(--color-border);
+    /* Properti position: sticky, top, z-index, dan backdrop-filter telah dihapus */
+}
+
+.header-profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--color-accent);
+    margin-right: 1.5rem;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.main-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    max-width: 1400px;
+    margin: 2rem auto;
+}
+
+/* --- 5. Navigasi --- */
+nav {
+    padding: 1rem;
+    text-align: center;
+}
+nav a {
+    color: var(--color-secondary-text);
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+    margin: 0.5rem;
+    border-radius: 50px;
+    transition: all var(--transition-speed) ease-in-out;
+    font-weight: 400;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+nav a.active {
+    color: #121212;
+    background: var(--gradient-accent);
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(197, 164, 126, 0.2);
+}
+nav a i { margin-right: 10px; }
+nav a:hover {
+    color: var(--color-heading);
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
+}
+
+/* --- 6. Konten Utama (Main, Aside, Cards) --- */
+main, aside { padding: 1rem; }
+.card {
+    background: var(--color-surface);
+    backdrop-filter: blur(20px);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+.card h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+.card h3 { border-bottom: 1px solid var(--color-border); padding-bottom: 1rem; margin-bottom: 1rem; }
+.card ul { list-style: none; padding: 0; }
+.card ul li { margin-bottom: 0.5rem; display: flex; align-items: center; }
+.card ul li i { margin-right: 10px; color: var(--color-accent); width: 20px; text-align: center; }
+
+/* --- 7. Gaya Spesifik (Keahlian) --- */
+.skills-list .skill-item { margin-bottom: 1.2rem; }
+.skill-bar-container {
+    width: 100%;
+    height: 10px;
+    background-color: var(--color-background);
+    border-radius: 5px;
+    margin-top: 0.5rem;
+}
+.skill-bar-progress {
+    height: 100%;
+    background: var(--gradient-accent);
+    border-radius: 5px;
+    animation: fillBar 1s ease-out forwards;
+}
+
+/* --- 8. Footer --- */
+footer {
+    background: #000;
+    color: var(--color-secondary-text);
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--color-border);
+}
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+.footer-branding h2 { font-family: var(--font-primary); font-weight: 300; letter-spacing: 1px; font-size: 1.8rem; }
+.footer-branding p { font-size: 1rem; }
+.footer-social .social-links a {
+    color: var(--color-secondary-text);
+    text-decoration: none;
+    margin-right: 1.5rem;
+    transition: color var(--transition-speed) ease-in-out;
+    font-size: 1.5rem;
+}
+.footer-social .social-links a:last-child { margin-right: 0; }
+.footer-social .social-links a:hover { color: var(--color-accent); }
+.footer-copyright {
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* --- 9. Tata Letak Responsif --- */
+
+/* Default untuk SEMUA layar di bawah 768px (Smartphone & Tablet Portrait) */
+.main-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+nav, main, aside { 
+    width: 100%; 
+    box-sizing: border-box;
+}
+.footer-container {
+    flex-direction: row;
+    text-align: left;
+}
+.footer-social { order: 1; }
+.footer-branding { order: 2; text-align: right; }
+
+@media (max-width: 575px) {
+    nav a { 
+        justify-content: start; 
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav a { 
+        display: inline-flex;
+        width: auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .main-wrapper { 
+        flex-wrap: wrap;
+    }
+    nav {
+        width: 25%;
+        order: 1;
+        flex-direction: column;
+        align-self: flex-start;
+        border-right: 1px solid var(--color-border);
+        padding-right: 1.5rem;
+        box-sizing: border-box;
+    }
+    nav a {
+        justify-content: flex-start;
+        margin: 0.5rem 0;
+    }
+    main { 
+        width: 75%; 
+        order: 2; 
+        box-sizing: border-box;
+    }
+    aside { 
+        width: 100%;
+        order: 3; 
+    }
+}
+
+@media (min-width: 1025px) {
+    .main-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 2rem;
+    }
+    nav {
+        width: 22%;
+        order: 1; 
+        text-align: right; 
+        flex-direction: column;
+        padding-top: 2rem; 
+        border-right: 1px solid var(--color-border);
+        align-self: flex-start;
+        padding-bottom: 0;
+        padding-right: 0;
+    }
+    nav a { 
+        justify-content: flex-end; 
+        margin: 0.8rem 0; 
+    }
+    main { 
+        width: 56%;
+        order: 2; 
+    }
+    aside { 
+        width: 22%;
+        order: 3; 
+    }
+}

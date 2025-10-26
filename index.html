@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Rayhan Mumtaz | Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <img src="Profile.JPG" alt="Foto Profil" class="header-profile-pic">
+        <h1>Profil Mahasiswa</h1>
+    </header>
+
+    <div class="main-wrapper">
+        <nav>
+            <a href="#" onclick="showContent('biodata')" class="nav-link active"><i class="fa-solid fa-user"></i> Biodata</a>
+            <a href="#" onclick="showContent('pendidikan')" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Pendidikan</a>
+            <a href="#" onclick="showContent('pengalaman')" class="nav-link"><i class="fa-solid fa-briefcase"></i> Pengalaman</a>
+            <a href="#" onclick="showContent('keahlian')" class="nav-link"><i class="fa-solid fa-code"></i> Keahlian</a>
+            <a href="#" onclick="showContent('publikasi')" class="nav-link"><i class="fa-solid fa-file-alt"></i> Publikasi</a>
+        </nav>
+
+        <main>
+            <section id="content-section">
+                </section>
+        </main>
+
+        <aside>
+            <div class="card">
+                <h3>Hobi</h3>
+                <ul>
+                    <li><i class="fa-solid fa-dumbbell"></i> GYM</li>
+                    <li><i class="fa-solid fa-book-open"></i> Membaca Buku</li>
+                    <li><i class="fa-solid fa-gamepad"></i> Bermain Game</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-branding">
+                <h2>Mumtaz</h2>
+                <p>We Make IT Happen</p>
+            </div>
+            <div class="footer-social">
+                <h3>Media Sosial</h3>
+                <div class="social-links">
+                    <a href="https://x.com/NTwarrr" target="_blank" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://github.com/rayhanmtaz" target="_blank" aria-label="Github"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.instagram.com/rayhanmtaz" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>Copyright &copy; 2025. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        function showContent(contentType) {
+            const contentSection = document.getElementById('content-section');
+            let content = '';
+
+            // Menghapus kelas 'active' dari semua link dan menambahkannya ke link yang diklik
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick') === `showContent('${contentType}')`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Memilih konten yang akan ditampilkan
+            switch (contentType) {
+                case 'biodata':
+                    content = `<article id="biodata" class="card">
+                                 <h2>Biodata</h2>
+                                 <p><strong>NIM:</strong> 2024081040</p>
+                                 <p><strong>Nama:</strong> Muhammad Rayhan Mumtaz</p>
+                                 <p><strong>Agama:</strong> Islam</p>
+                                 <p><strong>Tanggal Lahir:</strong> 5 April 2006</p>
+                                 <p><strong>Tempat Lahir:</strong> Tangerang</p>
+                               </article>`;
+                    break;
+                case 'pendidikan':
+                    content = `<article id="pendidikan" class="card">
+                                 <h2>Pendidikan</h2>
+                                 <p>TK Ar-Rahman</p>
+                                 <p>MIN 2 Kota Tangerang Selatan</p>
+                                 <p>SMPI AT-Taqwa</p>
+                                 <p>SMKN 1 Tangerang Selatan</p>
+                                 <p>Universitas Pembangunan Jaya</p>
+                               </article>`;
+                    break;
+                case 'pengalaman':
+                    content = `<article id="pengalaman" class="card">
+                                 <h2>Pengalaman</h2>
+                                 <p><strong>HIMASIF</strong> - Divisi Kewirausahaan (2024 - Sekarang)</p>
+                                 <p><strong>GIDHUB</strong> - Divisi HUMAS (2024)</p>
+                                 <p><strong>MAKRAB 2025</strong> - Divisi HUMAS (2026)</p>
+                               </article>`;
+                    break;
+                case 'keahlian':
+                    content = `<article id="keahlian" class="card">
+                                 <h2>Keahlian</h2>
+                                 <div class="skills-list">
+                                    <div class="skill-item">
+                                        <span>HTML</span>
+                                        <div class="skill-bar-container"><div class="skill-bar-progress" style="width: 65%;"></div></div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <span>CSS</span>
+                                        <div class="skill-bar-container"><div class="skill-bar-progress" style="width: 60%;"></div></div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <span>JavaScript</span>
+                                        <div class="skill-bar-container"><div class="skill-bar-progress" style="width: 35%;"></div></div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <span>Python</span>
+                                        <div class="skill-bar-container"><div class="skill-bar-progress" style="width: 50%;"></div></div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <span>SQL</span>
+                                        <div class="skill-bar-container"><div class="skill-bar-progress" style="width: 45%;"></div></div>
+                                    </div>
+                                 </div>
+                               </article>`;
+                    break;
+                case 'publikasi':
+                    content = `<article id="publikasi" class="card">
+                                 <h2>Publikasi</h2>
+                                 <p>Belum ada publikasi untuk ditampilkan.</p>
+                               </article>`;
+                    break;
+            }
+            contentSection.innerHTML = content;
+        }
+
+        // Memuat konten 'biodata' secara default saat halaman pertama kali dibuka
+        document.addEventListener('DOMContentLoaded', () => {
+            showContent('biodata');
+        });
+    </script>
+
+</body>
+</html>
